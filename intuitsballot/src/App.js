@@ -1,10 +1,11 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Switch, Route
 } from "react-router-dom";
 
 import NavBar from './component/NavBar';
+import RegisteredVoters from "./component/RegisteredVoters";
 
 // import NewElection from "./election/NewElection";
 // import Elections from './election/Elections'
@@ -28,6 +29,9 @@ function App() {
           {/* <Route path="/">
             <Home />
           </Route> */}
+          <Route path="/registeredvoter">
+            <RegisteredVoters/>
+          </Route>
         </Switch>
       </div>
     </Router>
