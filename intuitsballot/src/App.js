@@ -7,9 +7,7 @@ import {
 
 import NavBar from './component/NavBar';
 import RegisterVoterForm from './component/RegisterVoter';
-
-// import NewElection from "./election/NewElection";
-// import Elections from './election/Elections'
+import RegisteredVoters from "./component/RegisteredVoters";
 
 function App() {
   return (
@@ -17,21 +15,13 @@ function App() {
     <Router>
       <div>
          <NavBar />
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          {
           <Route path="/registervoter">
             <RegisterVoterForm />
           </Route>
-          // <Route path="/viewelections">
-          //   <Elections />
-          // </Route> */}
-          // {/* <Route path="/">
-          //   <Home />
-          // </Route> */
-        }
+          <Route path="/registeredvoter">
+            <RegisteredVoters/>
+          </Route>
         </Switch>
       </div>
     </Router>
