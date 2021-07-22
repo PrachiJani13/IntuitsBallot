@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react";
 import {dbHostURLVoters} from "./const";
 
-const mockUsers = [
+const mockvoters = [
     { id: 0, votedElectionIDs: [0, 1, 2], 
-      user: 
+      voter: 
           {
               firstname: "Prachi", 
               lastname: "Jani", 
@@ -15,9 +15,9 @@ const mockUsers = [
           }
       },
     { id: 0, votedElectionIDs: [0, 1, 2], 
-        user: 
+        voter: 
             {
-                firstname: "user2", 
+                firstname: "voter2", 
                 lastname: "Jani2", 
                 address: "2", 
                 city: "SF", 
@@ -53,17 +53,27 @@ function RegisteredVoters() {
             []
     );
 
+    // Put this anywhere you see fit
+    function handleDeleteClick(voterId) {
+        fetch(dbHostURLVoters, { method: 'DELETE' })
+                .then(checkHttpStatus)
+                .then(res => res.json())
+                .then(()=>setError(""))
+                .catch((err) => setError(err.response.statusText));
+        setVoters(voters.filter(voter => {return voter.id !== voterId}));
+    }
+
     const voterRows = voters.map(userObj => {
-        const user = userObj.user;
+        const voter = userObj.user;
         return (
             <tr>
-                <td>{user.firstname}</td>
-                <td>{user.lastname}</td>
-                <td>{user.address}</td>
-                <td>{user.city}</td>
-                <td>{user.birthdate}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
+                <td>{voter.firstname}</td>
+                <td>{voter.lastname}</td>
+                <td>{voter.address}</td>
+                <td>{voter.city}</td>
+                <td>{voter.birthdate}</td>
+                <td>{voter.email}</td>
+                <td>{voter.phone}</td>
                 <td><button>Edit</button><button>Delete</button></td>
             </tr>
         )
