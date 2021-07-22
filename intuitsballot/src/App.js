@@ -4,14 +4,15 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 import NavBar from './component/NavBar';
 import RegisterVoterForm from './component/RegisterVoter';
 import RegisteredVoters from "./component/RegisteredVoters";
 
 function App() {
+  const votersData = useSelector(state => state.voterReducer.voters);
   return (
-
     <Router>
       <div>
          <NavBar />
@@ -20,7 +21,7 @@ function App() {
             <RegisterVoterForm />
           </Route>
           <Route path="/registeredvoter">
-            <RegisteredVoters/>
+            <RegisteredVoters voters={votersData}/>
           </Route>
         </Switch>
       </div>

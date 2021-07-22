@@ -1,68 +1,17 @@
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 import {dbHostURLVoters} from "./const";
+import {fetchVoters} from "../actions";
+import {useDispatch, useSelector} from "react-redux";
 
-// const mockvoters = [
-//     { id: 0, votedElectionIDs: [0, 1, 2], 
-//       voter: 
-//           {
-//               firstname: "Prachi", 
-//               lastname: "Jani", 
-//               address: "1729 N 1st St", 
-//               city: "San Jose", 
-//               birthdate: "09131988", 
-//               email: "prachi_jani@intuit.com", 
-//               phone: "4083738410"
-//           }
-//       },
-//     { id: 0, votedElectionIDs: [0, 1, 2], 
-//         voter: 
-//             {
-//                 firstname: "voter2", 
-//                 lastname: "Jani2", 
-//                 address: "2", 
-//                 city: "SF", 
-//                 birthdate: "091df31988", 
-//                 email: "dfs@bfs.com", 
-//                 phone: "12351346"
-//             }
-//     },
-// ];
-
-function checkHttpStatus(response) {
-    if (response.ok) {
-      return Promise.resolve(response);
-    } else {
-      const error = new Error(response.statusText);
-      error.response = response;
-      return Promise.reject(error);
-    }
-}
-
-function RegisteredVoters() {
-    const [voters, setVoters] = useState([])
-    const [error, setError] = useState("");
-
+function RegisteredVoters({voters}) {
+    const dispatch = useDispatch();
+    const error = useSelector(state => state.error);
     useEffect(
-        () => 
-            fetch(dbHostURLVoters)
-                .then(checkHttpStatus)
-                .then((res) => res.json())
-                .then(setVoters)
-                .then(()=>setError(""))
-                .catch((err) => setError(err.response.statusText)),
-            []
-    );
+        () => dispatch(fetchVoters(dbHostURLVoters)),
+        []
+    )
 
-    // // Put this anywhere you see fit
-    // function handleDeleteClick(voterId) {
-    //     fetch(dbHostURLVoters, { method: 'DELETE' })
-    //             .then(checkHttpStatus)
-    //             .then(res => res.json())
-    //             .then(()=>setError(""))
-    //             .catch((err) => setError(err.response.statusText));
-    //     setVoters(voters.filter(voter => {return voter.id !== voterId}));
-    // }
-
+    console.log(voters);
     const voterRows = voters.map(userObj => {
         const voter = userObj.user;
         return (
