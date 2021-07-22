@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
+
+import NavBar from './component/NavBar';
+
+// import NewElection from "./election/NewElection";
+// import Elections from './election/Elections'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <div>
+         <NavBar />
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          {/* <Route path="/newelections">
+            <NewElection />
+          </Route>
+          <Route path="/viewelections">
+            <Elections />
+          </Route> */}
+          {/* <Route path="/">
+            <Home />
+          </Route> */}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
