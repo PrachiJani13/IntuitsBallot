@@ -2,9 +2,11 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
+    Route,
 } from "react-router-dom";
 
 import NavBar from './component/NavBar';
+import MainScreen from './component/mianscreen/MainScreen';
 
 // import NewElection from "./election/NewElection";
 // import Elections from './election/Elections'
@@ -19,6 +21,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+            <Route exact path="/">
+                <MainScreen />
+            </Route>
           {/* <Route path="/newelections">
             <NewElection />
           </Route>

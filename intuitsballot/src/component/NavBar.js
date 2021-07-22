@@ -11,7 +11,7 @@ const NavBar = () => {
       <Nav>
         {/* <Bars /> */}
         <NavMenu>
-          <NavLink to='/' activeStyle>
+          <NavLink exact to='/' activeStyle>
             Main Screen
           </NavLink>
           <NavLink to='/registervoter' activeStyle>
