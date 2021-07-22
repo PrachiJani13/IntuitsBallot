@@ -1,32 +1,32 @@
 import {useState, useEffect} from "react";
 import {dbHostURLVoters} from "./const";
 
-const mockvoters = [
-    { id: 0, votedElectionIDs: [0, 1, 2], 
-      voter: 
-          {
-              firstname: "Prachi", 
-              lastname: "Jani", 
-              address: "1729 N 1st St", 
-              city: "San Jose", 
-              birthdate: "09131988", 
-              email: "prachi_jani@intuit.com", 
-              phone: "4083738410"
-          }
-      },
-    { id: 0, votedElectionIDs: [0, 1, 2], 
-        voter: 
-            {
-                firstname: "voter2", 
-                lastname: "Jani2", 
-                address: "2", 
-                city: "SF", 
-                birthdate: "091df31988", 
-                email: "dfs@bfs.com", 
-                phone: "12351346"
-            }
-    },
-];
+// const mockvoters = [
+//     { id: 0, votedElectionIDs: [0, 1, 2], 
+//       voter: 
+//           {
+//               firstname: "Prachi", 
+//               lastname: "Jani", 
+//               address: "1729 N 1st St", 
+//               city: "San Jose", 
+//               birthdate: "09131988", 
+//               email: "prachi_jani@intuit.com", 
+//               phone: "4083738410"
+//           }
+//       },
+//     { id: 0, votedElectionIDs: [0, 1, 2], 
+//         voter: 
+//             {
+//                 firstname: "voter2", 
+//                 lastname: "Jani2", 
+//                 address: "2", 
+//                 city: "SF", 
+//                 birthdate: "091df31988", 
+//                 email: "dfs@bfs.com", 
+//                 phone: "12351346"
+//             }
+//     },
+// ];
 
 function checkHttpStatus(response) {
     if (response.ok) {
@@ -53,15 +53,15 @@ function RegisteredVoters() {
             []
     );
 
-    // Put this anywhere you see fit
-    function handleDeleteClick(voterId) {
-        fetch(dbHostURLVoters, { method: 'DELETE' })
-                .then(checkHttpStatus)
-                .then(res => res.json())
-                .then(()=>setError(""))
-                .catch((err) => setError(err.response.statusText));
-        setVoters(voters.filter(voter => {return voter.id !== voterId}));
-    }
+    // // Put this anywhere you see fit
+    // function handleDeleteClick(voterId) {
+    //     fetch(dbHostURLVoters, { method: 'DELETE' })
+    //             .then(checkHttpStatus)
+    //             .then(res => res.json())
+    //             .then(()=>setError(""))
+    //             .catch((err) => setError(err.response.statusText));
+    //     setVoters(voters.filter(voter => {return voter.id !== voterId}));
+    // }
 
     const voterRows = voters.map(userObj => {
         const voter = userObj.user;
