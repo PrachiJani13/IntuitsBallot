@@ -1,0 +1,41 @@
+{
+    "users": [
+      { "id": 0, "votedElectionIDs": [0, 1, 2], 
+        "user": 
+            {
+                "firstname": "Prachi", 
+                "lastname": "Jani", 
+                "address": "1729 N 1st St", 
+                "city": "San Jose", 
+                "birthdate": "09131988", 
+                "email": "prachi_jani@intuit.com", 
+                "phone": "4083738410"
+            }
+        },
+        { "id": 1, "votedElectionIDs": [0, 1, 2], 
+            "user": 
+            {
+                "firstname": "Lien", 
+                "lastname": "Tran", 
+                "address": "1729 N 1st St", 
+                "city": "San Francisco", 
+                "birthdate": "09131988", 
+                "email": "prachi_jani@intuit.com", 
+                "phone": "4083738410"
+            }
+        }
+    ],
+    "elections": [
+      { "id": 0, 
+        "questions": [
+            {
+                "id": 0, 
+                "question": "the sky is blue", 
+                "result": {
+                    "yes": 20, "no": 34
+                }
+            }
+        ]
+        }
+    ]
+  }
