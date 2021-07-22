@@ -1,4 +1,6 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import {dbHostURLVoters} from "./const";
+
 const mockUsers = [
     { id: 0, votedElectionIDs: [0, 1, 2], 
       user: 
@@ -25,8 +27,33 @@ const mockUsers = [
             }
     },
 ];
-function RegisteredVoters({users=mockUsers}) {
-    const voterRows = users.map(userObj => {
+
+function checkHttpStatus(response) {
+    if (response.ok) {
+      return Promise.resolve(response);
+    } else {
+      const error = new Error(response.statusText);
+      error.response = response;
+      return Promise.reject(error);
+    }
+}
+
+function RegisteredVoters() {
+    const [voters, setVoters] = useState([])
+    const [error, setError] = useState("");
+
+    useEffect(
+        () => 
+            fetch(dbHostURLVoters)
+                .then(checkHttpStatus)
+                .then((res) => res.json())
+                .then(setVoters)
+                .then(()=>setError(""))
+                .catch((err) => setError(err.response.statusText)),
+            []
+    );
+
+    const voterRows = voters.map(userObj => {
         const user = userObj.user;
         return (
             <tr>
@@ -60,6 +87,7 @@ function RegisteredVoters({users=mockUsers}) {
                     {voterRows}
                 </tbody>
             </table>
+            <p>{error}</p>
         </div>
     )
 }
