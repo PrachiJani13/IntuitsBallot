@@ -6,21 +6,16 @@ import {
 } from "react-router-dom";
 
 import NavBar from './component/NavBar';
-import RegisterVoterForm from './component/RegisterVoter';
-import RegisteredVoters from "./component/RegisteredVoters";
+import RegisterVoterTool from "./component/RegisterVoter/RegisterVoterTool";
 
 function App() {
   return (
-
     <Router>
       <div>
          <NavBar />
         <Switch>
-          <Route path="/registervoter">
-            <RegisterVoterForm />
-          </Route>
-          <Route path="/registeredvoter">
-            <RegisteredVoters/>
+          <Route path="/registervoters">
+            <RegisterVoterTool />
           </Route>
         </Switch>
       </div>
