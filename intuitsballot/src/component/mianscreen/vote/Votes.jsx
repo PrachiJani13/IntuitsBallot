@@ -17,11 +17,11 @@ const Votes = (props) => {
                 <form onSubmit={handleCastVote}>
                     {
                         currentBallot.questions.map(({ question, id }, index) => (
-                            <div>
+                            <div key={index}>
                                 <input
                                     className="left-section ms-checkbox"
                                     type="checkbox"
-                                    key={index}
+                                    key={`checkbox-${index}`}
                                     id={id}
                                     name={question}
                                     value={question}

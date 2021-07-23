@@ -19,7 +19,7 @@ const Ballot = (props) => {
                     <label>
                         <h3>Please Select Ballot From Dropdown:</h3>
                         <select value={dropDownValue} onChange={e => handleChange(e)}>
-                            <option value="" selected disabled>Select A Ballot</option>
+                            <option defaultValue="" >Select A Ballot</option>
                             {
                                 elections.map(election => (
                                     <option
