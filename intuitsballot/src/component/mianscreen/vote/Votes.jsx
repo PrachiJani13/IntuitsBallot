@@ -10,26 +10,29 @@ const Votes = (props) => {
     } = props;
     return (
         <div>
+            <hr className="solid" />
             <div>
                 <h2>Cast your votes</h2>
-                <h3>{currentBallot.electionname}</h3>
+                <h3>Ballot: {currentBallot.electionname}</h3>
                 <form onSubmit={handleCastVote}>
                     {
                         currentBallot.questions.map(({ question, id }, index) => (
-                            <label>
-                                {question}
+                            <div>
                                 <input
+                                    className="left-section ms-checkbox"
                                     type="checkbox"
                                     key={index}
                                     id={id}
                                     name={question}
                                     value={question}
                                     checked={checkBoxState[index]}
-                                    onChange={() => handleCheckBoxChange(index)}/>
-                            </label>
+                                    onChange={() => handleCheckBoxChange(index)}
+                                />
+                                <label className="checkbox-label">{question}</label>
+                            </div>
                         ))
                     }
-                    <input type="submit" value="Cast Vote"/>
+                    <input type="submit" value="Cast Vote" className='ms-button'/>
                 </form>
             </div>
         </div>

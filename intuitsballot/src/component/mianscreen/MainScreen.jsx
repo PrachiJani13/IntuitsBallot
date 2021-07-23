@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Ballot from './ballot/Ballot';
 import Votes from './vote/Votes';
 import checkHttpStatus from '../../utils/checkHttpStatus';
+import './MainScreen.css';
 
 const MainScreen = () => {
     const [ dropDownValue, setDropdownValue ] = useState('')
@@ -76,29 +77,36 @@ const MainScreen = () => {
 
     const handleCastVote = () => {
         alert('Your vote has been casted')
+        console.log(checkBoxState);
     }
 
     return (
-        <div>
-            <h1>Main Screen</h1>
-            <Ballot
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                dropDownValue={dropDownValue}
-                elections={electionResponse}
-                handleVoterIdChange={handleVoterIdChange}
-                voterId={voterId}
-            />
-            {dropDownValue && isValidUser &&
-            <Votes
-                handleCheckBoxChange={handleCheckBoxChange}
-                handleCastVote={handleCastVote}
-                currentBallot={currentBallot}
-                checkBoxState={checkBoxState}
-            />
-            }
+        <>
+        <h1 style={{textAlign: 'center'}}>Welcome to, intuitsballot App</h1>
+            <div className="main-wrapper" >
+                <div className="main-content">
 
-        </div>
+                    <Ballot
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                        dropDownValue={dropDownValue}
+                        elections={electionResponse}
+                        handleVoterIdChange={handleVoterIdChange}
+                        voterId={voterId}
+                    />
+                    {dropDownValue && isValidUser &&
+                    <Votes
+                        handleCheckBoxChange={handleCheckBoxChange}
+                        handleCastVote={handleCastVote}
+                        currentBallot={currentBallot}
+                        checkBoxState={checkBoxState}
+                    />
+                    }
+                </div>
+            </div>
+        </>
+
+
 
     );
 }

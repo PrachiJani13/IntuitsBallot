@@ -1,0 +1,70 @@
+.ms-button {
+    background-color: #63D471;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.ms-textbox{
+    display: flex;
+    padding: 6px 8px;
+    width: 210px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid #8D9096;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 4px 0px;
+}
+
+.ms-checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox-label{
+    font-size: 20px;
+    color: #676565;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+.main-wrapper{
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+.main-content{
+    float: left;
+    position: relative;
+    left: -50%;
+}
+
+p{
+    font-size: 14px;
+    line-height: 20px;
+    color: #6B6C72;
+}
+
+h3{
+    color: #6B6C72;
+}
+
+/* Solid border */
+hr.solid {
+    border-top: 3px solid #bbb;
+}
+
+.ballot-form{
+    font-size: 20px;
+}

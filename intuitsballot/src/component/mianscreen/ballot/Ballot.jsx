@@ -15,9 +15,9 @@ const Ballot = (props) => {
             <div>
                 <h2>Select a ballot</h2>
                 {/*<form onSubmit={handleSubmit}>*/}
-                <form>
+                <form className="ballot-form">
                     <label>
-                        Choose From Dropdown:
+                        <h3>Please Select Ballot From Dropdown:</h3>
                         <select value={dropDownValue} onChange={e => handleChange(e)}>
                             <option value="" selected disabled>Select A Ballot</option>
                             {
@@ -33,10 +33,10 @@ const Ballot = (props) => {
                         </select>
                     </label>
                     <label>
-                        Enter User ID:
-                        <input type="text" name="voterId" value={voterId} onChange={handleVoterIdChange}/>
+                        <h3>Enter Your User ID:</h3>
+                        <input className="ms-textbox" type="text" name="voterId" value={voterId} onChange={handleVoterIdChange}/>
                     </label>
-                    <button type="button" onClick={handleSubmit}>Vote</button>
+                    <button className="ms-button" type="button" onClick={handleSubmit}>Vote</button>
                 </form>
             </div>
         </div>
