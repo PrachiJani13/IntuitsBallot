@@ -42,6 +42,10 @@ export default function RegisterVoterTool() {
     }
   }
 
+  function onSortFirstName() {
+    console.log("Local user array should start to be sorted");
+  }
+
   function onCancel(){
     setEditUserId(-1);
   }
@@ -58,6 +62,7 @@ export default function RegisterVoterTool() {
         onSave={saveUser}
         onDelete={deleteUser}
         onCancel={onCancel}
+        onSortFirstName={onSortFirstName}
       />
       <Footer footerText={'Copyright 2021. Intuit Inc.'} />
     </div>
