@@ -1,95 +1,46 @@
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
 import RegisterVoterForm  from './RegisterVoterForm';
 import RegisteredVoters  from './RegisteredVoters';
 import Footer from '../generics/Footer';
 import ToolHeader from '../generics/ToolHeader';
-
-import {dbHostURLVoters} from "../const";
+import {makeDeleteRequest, makeAddRequest, makeEditRequest} from "../../actions";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export default function RegisterVoterTool() {
+  const dispatch = useDispatch();
+  const votersData = useSelector(state => state.voterReducer.voters);
   const [users, setUsers] = useState([]);
   const [editUserId, setEditUserId] = useState(-1);
-  const [error, setError] = useState("");
-
-  useEffect(
-    () => 
-        fetch(dbHostURLVoters)
-            .then(checkHttpStatus)
-            .then((res) => res.json())
-            .then(setUsers)
-            .then(()=>setError(""))
-            .catch((err) => setError(err.response.statusText)),
-        []
-);
+  const error = useSelector(state => state.error);
 
   function deleteUser(deleteUser) {
     if(deleteUser) {
-      const requestOptions = {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(deleteUser),
-      };
-      fetch(`${dbHostURLVoters}/${deleteUser.id}`, requestOptions)
-          .then(checkHttpStatus)
-          .then(res => {res.json()})
-          .then(()=>setError(""))
-          .catch((err) => setError(err.response.statusText));
+      dispatch(makeDeleteRequest(deleteUser));
+      setUsers(users.filter((user) => user.id !== deleteUser.id));
     }
-    setUsers(users.filter((user) => user.id !== deleteUser.id));
-
   }
-
-
-  function checkHttpStatus(response) {
-    if (response.ok) {
-      return Promise.resolve(response);
-    } else {
-      const error = new Error(response.statusText);
-      error.response = response;
-      return Promise.reject(error);
-    }
-}
 
   function addUser(user) {
     console.log("User",user);
     const newId = Math.max(...users.map(user => user.id))+1;
-        const newUserObj = { id: newId, votedElectionIDs: [], user: user} 
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newUserObj),
-        };
-        fetch(`${dbHostURLVoters}`, requestOptions)
-            .then(checkHttpStatus)
-            .then(res => {res.json()})
-            .then(()=>setError(""))
-            .catch((err) => setError(err.response.statusText));
-        setUsers([...users, newUserObj]);
+    const newUserObj = { id: newId, votedElectionIDs: [], user: user};
+    dispatch(makeAddRequest(newUserObj));
+    setUsers([...users, newUserObj]);
   }
 
   function saveUser(editedUser) {
     console.log("users", users);
     if(editedUser) {
-      const requestOptions = {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(editedUser),
-      };
-      fetch(`${dbHostURLVoters}/${editedUser.id}`, requestOptions)
-          .then(checkHttpStatus)
-          .then(res => {res.json()})
-          .then(()=>setError(""))
-          .catch((err) => setError(err.response.statusText));
+      dispatch(makeEditRequest(editedUser));
       let indexToSave = users.findIndex((user) => user.id === editedUser.id);
       let newUsers = [...users];
       console.log("NewUsers",newUsers);
       newUsers[indexToSave] = editedUser;
       setUsers(newUsers);
       setEditUserId(-1);
+    }
   }
-}
 
   function onCancel(){
     setEditUserId(-1);
@@ -101,7 +52,7 @@ export default function RegisterVoterTool() {
       <RegisterVoterForm onComplete={addUser} />
       <p>{error}</p>
       <RegisteredVoters
-        users={users}
+        users={votersData}
         editUserId={editUserId}
         onEdit={(id) => setEditUserId(id)}
         onSave={saveUser}

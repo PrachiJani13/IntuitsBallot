@@ -38,6 +38,8 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "react-redux": "^7.2.4",
+    "redux-thunk": "^2.3.0"
   }
 }
