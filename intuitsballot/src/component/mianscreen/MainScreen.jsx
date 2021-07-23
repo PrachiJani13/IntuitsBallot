@@ -5,11 +5,11 @@ import checkHttpStatus from '../../utils/checkHttpStatus';
 import './MainScreen.css';
 
 const MainScreen = () => {
+    const [ electionResponse, setElectionResponse ] = useState([])
+    const [ userResponse, setUserResponse ] = useState([])
     const [ dropDownValue, setDropdownValue ] = useState('')
     const [ voterId, setVoterId ] = useState('');
-    const [ electionResponse, setElectionResponse ] = useState([])
     const [ isValidUser, setIsValidUser ] = useState(false);
-    const [ userResponse, setUserResponse ] = useState([])
     const [ currentBallot, setCurrentBallot ] = useState([]);
     const [ checkBoxState, setCheckBoxState ] = useState([]);
 
@@ -75,9 +75,27 @@ const MainScreen = () => {
 
     }
 
+    const setDefaultState=()=>{
+        //set default states
+        setDropdownValue('')
+        setVoterId('');
+        setIsValidUser(false);
+        setCurrentBallot([]);
+        setCheckBoxState([]);
+    }
+
     const handleCastVote = () => {
-        alert('Your vote has been casted')
-        console.log(checkBoxState);
+        const currentVotedElectionIDs = userResponse.map(user => {
+            if(user.id ===parseInt(voterId)){
+               user.votedElectionIDs.push(currentBallot.id)
+            }
+            return user;
+        });
+        setUserResponse(currentVotedElectionIDs);
+
+        setDefaultState();
+
+
     }
 
     return (

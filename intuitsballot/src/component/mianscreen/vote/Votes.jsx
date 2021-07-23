@@ -14,7 +14,7 @@ const Votes = (props) => {
             <div>
                 <h2>Cast your votes</h2>
                 <h3>Ballot: {currentBallot.electionname}</h3>
-                <form onSubmit={handleCastVote}>
+                <form>
                     {
                         currentBallot.questions.map(({ question, id }, index) => (
                             <div key={index}>
@@ -32,7 +32,7 @@ const Votes = (props) => {
                             </div>
                         ))
                     }
-                    <input type="submit" value="Cast Vote" className='ms-button'/>
+                    <button className="ms-button" type="button" onClick={handleCastVote}>Cast Vote</button>
                 </form>
             </div>
         </div>
