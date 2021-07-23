@@ -1,6 +1,8 @@
 import checkHttpStatus from './checkHttpStatus';
 import {dbHostURLVoters} from "../component/const";
 
+export const REQUEST_ELECTIONS = "REQUEST_ELECTIONS";
+export const RECEIVE_ELECTIONS = "RECEIVE_ELECTIONS";
 export const REQUEST_VOTERS = "REQUEST_VOTERS";
 export const RECEIVE_VOTERS = "RECEIVE_VOTERS";
 export const DELETE_VOTER = "DELETE_VOTER";
@@ -73,14 +75,6 @@ export const fetchVoters = dbURL => dispatch => {
       });
 }
 
-<<<<<<< HEAD
-export const fetchElections = dbURL => dispatch => {
-    dispatch(requestElections(dbURL));
-    return fetch(dbURL)
-      .then(checkHttpStatus)
-      .then(json => json.json())
-      .then(data => dispatch(receiveElections(data)))
-=======
 export const notifyError = (error) => {
   console.log('Error:', error);
   return {
@@ -116,23 +110,12 @@ export const makeAddRequest = voter => dispatch => {
   fetch(dbHostURLVoters, requestOptions)
       .then(checkHttpStatus)
       .then(_ => dispatch(addedVoter(voter)))
->>>>>>> 33d3538d5adbd3bb6194d2b2ab716caa7da06c30
       .catch(error => {
         console.log('Error:', error);
         dispatch(notifyError(error))
       });
 }
 
-<<<<<<< HEAD
-
-export const notifyError = (error) => {
-console.log('Error:', error);
-return {
-    type: API_ERROR,
-    error: error.message,
-};
-} 
-=======
 export const makeEditRequest = voter => dispatch => {
   dispatch(editVoter(voter));
   const requestOptions = {
@@ -148,4 +131,3 @@ export const makeEditRequest = voter => dispatch => {
         dispatch(notifyError(error))
     });
 }
->>>>>>> 33d3538d5adbd3bb6194d2b2ab716caa7da06c30
