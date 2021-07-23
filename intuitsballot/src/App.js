@@ -10,6 +10,7 @@ import NavBar from './component/NavBar';
 import NewElection from "./election/NewElection";
 import Elections from './election/Elections'
 import RegisterVoterTool from "./component/RegisterVoter/RegisterVoterTool";
+import MainScreen from './component/mianscreen/MainScreen';
 
 function App() {
   return (
@@ -17,15 +18,15 @@ function App() {
       <div>
          <NavBar />
         <Switch>
-          <Route path="/newelections">
-            <NewElection />
-          </Route>
-          <Route path="/viewelections">
-            <Elections />
-          </Route>
-          {/* <Route path="/">
-            <Home />
-          </Route> */}
+            <Route exact path="/">
+                <MainScreen />
+            </Route>
+            <Route path="/newelections">
+                <NewElection />
+            </Route>
+            <Route path="/viewelections">
+                <Elections />
+            </Route>
           <Route path="/registervoters">
             <RegisterVoterTool />
           </Route>

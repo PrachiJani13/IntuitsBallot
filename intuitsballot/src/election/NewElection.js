@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import NewElectionForm from './NewElectionForm';
 import './Election.css';
 
-const ELECTIONS_URL = 'http://localhost:3080/elections';
+import {dbHostURLElections} from '../component/const';
 
 
 function checkHttpStatus(response) {
@@ -21,7 +21,7 @@ export default function NewElection() {
 
     useEffect(
         () => 
-            fetch(ELECTIONS_URL)
+            fetch(dbHostURLElections)
                 .then(checkHttpStatus)
                 .then((res) => res.json())
                 .then(setElections)
@@ -39,7 +39,7 @@ export default function NewElection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newElectionObj),
       };
-      fetch(`${ELECTIONS_URL}`, requestOptions)
+      fetch(`${dbHostURLElections}`, requestOptions)
         .then(checkHttpStatus)
         .then(res => {res.json()})
         .then(()=>setError(""))
