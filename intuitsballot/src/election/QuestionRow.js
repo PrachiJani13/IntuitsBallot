@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-function QuestionRow({ question }) {
+function QuestionRow({ election, question }) {
   
     let result = question.result.yes >= question.result.no ? ("Yes") : ("No")
     
@@ -13,9 +13,12 @@ function QuestionRow({ question }) {
     
   return (
     <tr>
+      <td>{election.id}</td>
+      <td>{election.electionname}</td>
       <td >{question.id}</td>
       <td>{question.question}</td>
       <td> <button onClick={clickHandler}>{label}</button></td>
+
     </tr>
     )}
 

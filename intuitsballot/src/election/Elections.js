@@ -33,7 +33,7 @@ function Elections() {
         <tr>
           <th>ID </th>
           <th>Election Name </th>
-          <th> ID</th>
+          <th>Election ID</th>
           <th>Questions </th>
           <th>Results </th>
         </tr>

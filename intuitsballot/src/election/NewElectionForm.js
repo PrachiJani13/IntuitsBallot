@@ -18,53 +18,27 @@ function splitQuestions(questions) {
 console.log(splitQuestions("hello,world,how,are,yu"));
 
 export default function  NewElectionForm({ onSave }) {
-    // const emptyElectionForm = {
-    //     electionname: '',
-    //     questions: [
-    //     {
-    //       id:0,
-    //        question: '',
-    //        result: {
-    //            yes: 0,
-    //            no: 0,
-    //        }
-    //     }],
-    // };
 
-    const emptyElectionName = '';
-
-    const emptyElectionQuestions = {
-          id:0,
-          question: '',
-          result: {
-            yes: 0,
-            no: 0,
-          }
-    };
-
-
-    let [newElectionName, setNewElectionName] = useState(emptyElectionName);
-    let [newElectionQuestions, setNewElectionQuestions] = useState(emptyElectionQuestions);
+    const [newElectionName, setNewElectionName] = useState("");
+    const [newElectionQuestions, setNewElectionQuestions] = useState("");
 
     function handleNameChange(e) {
-        setNewElectionName(newElectionName);
+        setNewElectionName(e.target.value);
     }
     
     function handleQuestionsChange(e) {
-        setNewElectionQuestions({
-        ...newElectionQuestions,
-        [e.target.name]: e.target.value,
-        });
+       setNewElectionQuestions(e.target.value);
     }
 
-    function save(newElectionForm) {
-        onSave(newElectionForm);
-        setNewElectionName(emptyElectionName);
-        setNewElectionQuestions(emptyElectionQuestions);
+    function saveName(newElectionName) {
+        onSave(newElectionName)
+        setNewElectionName("");
     }
-    
-    console.log(newElectionName);
-    console.log(newElectionQuestions);
+
+     function saveQuestions(newElectionQuestions) {
+        onSave(splitQuestions(newElectionQuestions));
+        setNewElectionQuestions("");
+    }
 
     return (
         <div  label="New Election"  className='.center'>
@@ -76,11 +50,11 @@ export default function  NewElectionForm({ onSave }) {
             <p>
             <label htmlFor="questions">List of questions here(Please seperate questions with comma): </label>
             </p>
-            <textarea type="text" name="questions"  value={newElectionQuestions}  onChange={handleQuestionsChange}/>
+            <textarea type="text" name="electionquestions"  value={newElectionQuestions}  onChange={handleQuestionsChange}/>
             <p>
-            <button type="button" onClick={() => save(emptyElectionName, emptyElectionQuestions)}>Save</button>
+            <button type="button" onClick={() => {saveName(newElectionName); saveQuestions(newElectionQuestions)} }>Save</button>
             </p>
 
             </form>
-        </div>
-    )}
+        </div>)    
+        }
