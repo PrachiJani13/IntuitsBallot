@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import RegisterVoterForm  from './RegisterVoterForm';
 import RegisteredVoters  from './RegisteredVoters';
-import Footer from '../generics/Footer';
-import ToolHeader from '../generics/ToolHeader';
+
 import {makeDeleteRequest, makeAddRequest, makeEditRequest} from "../../actions";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -48,7 +47,6 @@ export default function RegisterVoterTool() {
 
   return (
     <div>
-      <ToolHeader label="Intuit's Ballot" />
       <RegisterVoterForm onComplete={addUser} />
       <p>{error}</p>
       <RegisteredVoters
@@ -59,7 +57,6 @@ export default function RegisterVoterTool() {
         onDelete={deleteUser}
         onCancel={onCancel}
       />
-      <Footer footerText={'Copyright 2021. Intuit Inc.'} />
     </div>
   );
 }

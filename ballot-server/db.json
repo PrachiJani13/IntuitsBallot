@@ -1,10 +1,8 @@
 {
   "users": [
     {
-      "id": 0,
-      "votedElectionIDs": [
-       2
-      ],
+      "id": 7,
+      "votedElectionIDs": [],
       "user": {
         "firstname": "Prachi",
         "lastname": "Jani",
@@ -29,6 +27,19 @@
         "city": "San Francisco",
         "birthdate": "09131988",
         "email": "prachi_jani@intuit.com",
+        "phone": "4083738410"
+      }
+    },
+    {
+      "id": 9,
+      "votedElectionIDs": [],
+      "user": {
+        "firstname": "Prachi",
+        "lastname": "Jani",
+        "address": "33 S 3rd St, Apt 110",
+        "city": "San Jose",
+        "birthdate": "09131988",
+        "email": "proch.jani@gmail.com",
         "phone": "4083738410"
       }
     }

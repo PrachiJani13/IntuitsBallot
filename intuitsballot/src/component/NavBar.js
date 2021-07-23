@@ -4,10 +4,12 @@ import {
   NavLink,
   NavMenu,
 } from './NavbarElements';
+import ToolHeader from './generics/ToolHeader';
   
 const NavBar = () => {
   return (
     <>
+      <ToolHeader label="Intuit's Ballot" slogan="The ballot is stronger than the bullet!"/>
       <Nav>
         {/* <Bars /> */}
         <NavMenu>
