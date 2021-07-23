@@ -5,7 +5,7 @@ import {dbHostURLVoters} from "../const";
 import {fetchVoters} from "../../actions";
 import {useDispatch, useSelector} from "react-redux";
 
-function RegisteredVoters({users, editUserId, onEdit, onDelete, onSave, onCancel}) {
+function RegisteredVoters({users, editUserId, onEdit, onDelete, onSave, onCancel, onSortFirstName}) {
     const dispatch = useDispatch();
     const error = useSelector(state => state.error);
     useEffect(
