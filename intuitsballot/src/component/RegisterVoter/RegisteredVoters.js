@@ -1,9 +1,17 @@
 import RegisterVoterViewRow from './RegisterVoterViewRow';
 import RegisterVoterEditRow from './RegisterVoterEditRow';
+import {useEffect} from "react";
+import {dbHostURLVoters} from "../const";
+import {fetchVoters} from "../../actions";
+import {useDispatch, useSelector} from "react-redux";
 
 function RegisteredVoters({users, editUserId, onEdit, onDelete, onSave, onCancel}) {
-    
-
+    const dispatch = useDispatch();
+    const error = useSelector(state => state.error);
+    useEffect(
+        () => dispatch(fetchVoters(dbHostURLVoters)),
+        []
+    )
     let userRows = users.map((user) =>
         editUserId === user.id ? (<RegisterVoterEditRow key={user.id} user={user} onSave={onSave} onCancel={onCancel}/>) : 
             (<RegisterVoterViewRow key={user.id} user={user} onEdit={onEdit} onDelete={onDelete}  />)
@@ -28,6 +36,7 @@ function RegisteredVoters({users, editUserId, onEdit, onDelete, onSave, onCancel
                     {userRows}
                 </tbody>
             </table>
+            <p>{error}</p>
         </div>
     );
 }
