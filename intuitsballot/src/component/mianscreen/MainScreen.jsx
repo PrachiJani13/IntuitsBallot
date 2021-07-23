@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Ballot from './ballot/Ballot';
 import Votes from './vote/Votes';
-import checkHttpStatus from '../../utils/checkHttpStatus';
+import checkHttpStatus from '../../actions/checkHttpStatus';
 import './MainScreen.css';
+import {dbHostURLVoters, dbHostURLElections} from '../const';
 
 const MainScreen = () => {
     const [ electionResponse, setElectionResponse ] = useState([])
@@ -15,14 +16,14 @@ const MainScreen = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:3060/elections')
+        fetch(dbHostURLElections)
             .then(checkHttpStatus)
             .then(response => response.json())
             .then(setElectionResponse);
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:3060/users')
+        fetch(dbHostURLElections)
             .then(checkHttpStatus)
             .then(response => response.json())
             .then(setUserResponse);
