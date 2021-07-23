@@ -32,12 +32,10 @@ const MainScreen = () => {
 
     const handleChange = (event) => {
         setDropdownValue(event.target.value);
-        console.log(dropDownValue)
     }
 
     const handleVoterIdChange = (event) => {
         setVoterId(event.target.value);
-        console.log(voterId);
     }
 
     const showAlert = (message) => {
@@ -62,8 +60,6 @@ const MainScreen = () => {
         setCheckBoxState(new Array(currentElection[0].questions.length).fill(false))
         setCurrentBallot(currentElection[0]);
         setIsValidUser(isValid);
-        console.log(`the checked box states: ${checkBoxState}`)
-        console.log(checkBoxState);
         event.preventDefault();
     };
 
