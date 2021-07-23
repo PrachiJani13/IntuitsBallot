@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ElectionRow from './ElectionRow';
 
-const ELECTIONS_URL = 'http://localhost:3050/elections';
+const ELECTIONS_URL = 'http://localhost:3080/elections';
 
 function Elections() {
 

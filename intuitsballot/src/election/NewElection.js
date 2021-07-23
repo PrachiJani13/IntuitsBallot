@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import NewElectionForm from './NewElectionForm';
 import './Election.css';
 
-const ELECTIONS_URL = 'http://localhost:3050/elections';
+const ELECTIONS_URL = 'http://localhost:3080/elections';
 
 
 function checkHttpStatus(response) {
@@ -31,7 +31,20 @@ export default function NewElection() {
     );
 
     function addElection(election) {
-        setElections([...elections, { ...election, id: Math.max(...elections.map((e) => e.id)) + 1 }]);
+      console.log("election", election);
+      const newId = Math.max(...elections.map(election => election.id))+1;
+      const newElectionObj = { id: newId,  ...election} 
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newElectionObj),
+      };
+      fetch(`${ELECTIONS_URL}`, requestOptions)
+        .then(checkHttpStatus)
+        .then(res => {res.json()})
+        .then(()=>setError(""))
+        .catch((err) => setError(err.response.statusText));
+      setElections([...elections, newElectionObj]);
     }
 
       return (

@@ -7,7 +7,8 @@ function splitQuestions(questions) {
     let questionsObj = questionsArr.map(function(q) {
         return {
             id: uid++,
-            question: q
+            question: q,
+            result: {Yes: 0, No: 0}
         }
     })
 
@@ -30,13 +31,13 @@ export default function  NewElectionForm({ onSave }) {
        setNewElectionQuestions(e.target.value);
     }
 
-    function saveName(newElectionName) {
-        onSave(newElectionName)
+    function save() {
+        const electionObj = {
+            electionname: newElectionName,
+            questions: splitQuestions(newElectionQuestions),
+        }
+        onSave(electionObj);
         setNewElectionName("");
-    }
-
-     function saveQuestions(newElectionQuestions) {
-        onSave(splitQuestions(newElectionQuestions));
         setNewElectionQuestions("");
     }
 
@@ -52,7 +53,7 @@ export default function  NewElectionForm({ onSave }) {
             </p>
             <textarea type="text" name="electionquestions"  value={newElectionQuestions}  onChange={handleQuestionsChange}/>
             <p>
-            <button type="button" onClick={() => {saveName(newElectionName); saveQuestions(newElectionQuestions)} }>Save</button>
+            <button type="button" onClick={() => {save()} }>Save</button>
             </p>
 
             </form>
