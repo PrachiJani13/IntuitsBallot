@@ -31,7 +31,7 @@ export default function RegisterVoterForm( { onComplete }) {
                 <input
                     type="text"
                     name="firstname"
-                    value={voterForm.firstName}
+                    value={voterForm.firstname}
                     onChange={handleChange}
                 />
             </div>
@@ -39,7 +39,7 @@ export default function RegisterVoterForm( { onComplete }) {
                 <label>Last Name:</label>
                 <input type="text"
                     name="lastname"
-                    value={voterForm.lastName}
+                    value={voterForm.lastname}
                     onChange={handleChange} 
                 />
             </div>
