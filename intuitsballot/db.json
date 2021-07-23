@@ -3,7 +3,7 @@
     {
       "id": 0,
       "votedElectionIDs": [
-       2
+        2
       ],
       "user": {
         "firstname": "Prachi",
@@ -30,6 +30,19 @@
         "birthdate": "09131988",
         "email": "prachi_jani@intuit.com",
         "phone": "4083738410"
+      }
+    },
+    {
+      "id": 2,
+      "votedElectionIDs": [],
+      "user": {
+        "firstname": "jesus",
+        "lastname": "espinoza",
+        "address": "2830 marathon dr",
+        "city": "san diego",
+        "birthdate": "10/03/1981",
+        "email": "3wersdfs@some.com",
+        "phone": "8083720410"
       }
     }
   ],
@@ -82,6 +95,28 @@
           "result": {
             "yes": 4,
             "no": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "electionname": "buy one",
+      "questions": [
+        {
+          "id": 0,
+          "question": "bogo",
+          "result": {
+            "Yes": 0,
+            "No": 0
+          }
+        },
+        {
+          "id": 1,
+          "question": " bobo",
+          "result": {
+            "Yes": 0,
+            "No": 0
           }
         }
       ]
