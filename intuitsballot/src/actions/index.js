@@ -1,6 +1,8 @@
 import checkHttpStatus from './checkHttpStatus';
 import {dbHostURLVoters} from "../component/const";
 
+export const REQUEST_ELECTIONS = "REQUEST_ELECTIONS";
+export const RECEIVE_ELECTIONS = "RECEIVE_ELECTIONS";
 export const REQUEST_VOTERS = "REQUEST_VOTERS";
 export const RECEIVE_VOTERS = "RECEIVE_VOTERS";
 export const DELETE_VOTER = "DELETE_VOTER";
@@ -21,6 +23,15 @@ export const receiveVoters = (data) => ({
     posts: data,
 })
 
+export const requestElections = dbURL => ({
+    type: REQUEST_ELECTIONS,
+    dbURL
+});
+
+export const receiveElections= (data) => ({
+    type: RECEIVE_ELECTIONS,
+    posts: data,
+});
 export const deleteVoter = voter => ({
     type: DELETE_VOTER,
     voter

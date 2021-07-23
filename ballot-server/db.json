@@ -1,41 +1,34 @@
 {
   "users": [
     {
-      "id": 6,
-      "votedElectionIDs": [],
-      "user": {
-        "firstname": "Prachi456",
-        "lastname": "Jani456",
-        "address": "33 S 3rd St, Apt 110",
-        "city": "San Jose",
-        "birthdate": "09131988",
-        "email": "proch.jani@gmail.com",
-        "phone": "5555555555"
-      }
-    },
-    {
-      "id": 7,
-      "votedElectionIDs": [],
-      "user": {
-        "firstname": "Prateek",
-        "lastname": "Jani",
-        "address": "1729 N 1st St, Century Towers Apartments",
-        "city": "San Jose",
-        "birthdate": "09131989",
-        "email": "prateek.jani@gmail.com",
-        "phone": "8888888888"
-      }
-    },
-    {
-      "id": 8,
-      "votedElectionIDs": [],
+      "id": 0,
+      "votedElectionIDs": [
+       2
+      ],
       "user": {
         "firstname": "Prachi",
         "lastname": "Jani",
-        "address": "33 S 3rd St, Apt 110",
+        "address": "1729 N 1st St",
         "city": "San Jose",
         "birthdate": "09131988",
-        "email": "proch.jani@gmail.com",
+        "email": "prachi_jani@intuit.com",
+        "phone": "4083738410"
+      }
+    },
+    {
+      "id": 1,
+      "votedElectionIDs": [
+        0,
+        1,
+        2
+      ],
+      "user": {
+        "firstname": "Lien",
+        "lastname": "Tran",
+        "address": "1729 N 1st St",
+        "city": "San Francisco",
+        "birthdate": "09131988",
+        "email": "prachi_jani@intuit.com",
         "phone": "4083738410"
       }
     }
@@ -43,6 +36,7 @@
   "elections": [
     {
       "id": 0,
+      "electionname": "General Ballot",
       "questions": [
         {
           "id": 0,
@@ -51,8 +45,47 @@
             "yes": 20,
             "no": 34
           }
+        },
+        {
+          "id": 1,
+          "question": "water is wet",
+          "result": {
+            "yes": 4,
+            "no": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "electionname": "Coding",
+      "questions": [
+        {
+          "id": 0,
+          "question": "Python is easy",
+          "result": {
+            "yes": 20,
+            "no": 34
+          }
+        },
+        {
+          "id": 1,
+          "question": "Reactive Spring is new",
+          "result": {
+            "yes": 4,
+            "no": 100
+          }
+        },
+        {
+          "id": 2,
+          "question": "Angular is better",
+          "result": {
+            "yes": 4,
+            "no": 100
+          }
         }
       ]
     }
   ]
-}
+} 
+  
