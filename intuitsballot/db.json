@@ -3,9 +3,7 @@
     {
       "id": 0,
       "votedElectionIDs": [
-        0,
-        1,
-        2
+       2
       ],
       "user": {
         "firstname": "Prachi",
