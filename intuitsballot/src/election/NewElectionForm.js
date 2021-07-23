@@ -16,8 +16,6 @@ function splitQuestions(questions) {
 }
 
 
-console.log(splitQuestions("hello,world,how,are,yu"));
-
 export default function  NewElectionForm({ onSave }) {
 
     const [newElectionName, setNewElectionName] = useState("");
@@ -42,19 +40,19 @@ export default function  NewElectionForm({ onSave }) {
     }
 
     return (
-        <div  label="New Election"  className='.center'>
-            <form> 
+        <div  label="New Election"  className='main-wrapper'>
+            <form className='main-content' > 
                 <label  htmlFor="electionname">
-                    <p> Election name:</p>
+                    <h3> Election name:</h3>
                 </label>
                 <input type="text" name="electionname"  value={newElectionName}  onChange={handleNameChange} />
-            <p>
+            <h3>
             <label htmlFor="questions">List of questions here(Please seperate questions with comma): </label>
-            </p>
-            <textarea type="text" name="electionquestions"  value={newElectionQuestions}  onChange={handleQuestionsChange}/>
-            <p>
-            <button type="button" onClick={() => {save()} }>Save</button>
-            </p>
+            </h3>
+            <textarea type="text" name="electionquestions" classname="ms-textbox" value={newElectionQuestions}  onChange={handleQuestionsChange}/>
+            <h3>
+            <button type="button"  className='ms-button' onClick={() => {save()} }>Save</button>
+            </h3>
 
             </form>
         </div>)    

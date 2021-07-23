@@ -1,6 +1,6 @@
 import RegisterVoterViewRow from './RegisterVoterViewRow';
 import RegisterVoterEditRow from './RegisterVoterEditRow';
-import {useEffect} from "react";
+import {useState, useEffect} from "react";
 import {dbHostURLVoters} from "../const";
 import {fetchVoters} from "../../actions";
 import {useDispatch, useSelector} from "react-redux";

@@ -2,10 +2,10 @@
   background-color: #63d471;
   border: none;
   color: white;
-  padding: 10px 10px;
-  margin: 2px 2px;
+  padding: 16px 32px;
+  margin: 4px 2px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .ms-textbox {

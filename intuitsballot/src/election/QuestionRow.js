@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './Election.css';
 
 function QuestionRow({ election, question }) {
   
@@ -17,7 +17,7 @@ function QuestionRow({ election, question }) {
       <td>{election.electionname}</td>
       <td >{question.id}</td>
       <td>{question.question}</td>
-      <td> <button onClick={clickHandler}>{label}</button></td>
+      <td> <button  className='ms-button' onClick={clickHandler}>{label}</button></td>
 
     </tr>
     )}

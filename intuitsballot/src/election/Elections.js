@@ -2,13 +2,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ElectionRow from './ElectionRow';
+import './Election.css';
+
 
 import {dbHostURLElections} from '../component/const';
 
 function Elections() {
 
     const [elections, setElections] = useState([]);
-
 
     useEffect(
         () =>
@@ -26,9 +27,9 @@ function Elections() {
     );
 
   return (
-    <div className="Elections " >
+    <div className='main-wrapper' >
 
-   <table > 
+   <table className='main-content'> 
       <thead>
         <tr>
           <th>ID </th>
