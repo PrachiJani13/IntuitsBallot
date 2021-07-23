@@ -23,7 +23,7 @@ const MainScreen = () => {
     }, []);
 
     useEffect(() => {
-        fetch(dbHostURLElections)
+        fetch(dbHostURLVoters)
             .then(checkHttpStatus)
             .then(response => response.json())
             .then(setUserResponse);
