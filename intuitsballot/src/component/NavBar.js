@@ -14,7 +14,7 @@ const NavBar = () => {
           <NavLink exact to='/' activeStyle>
             Main Screen
           </NavLink>
-          <NavLink to='/registervoter' activeStyle>
+          <NavLink to='/registervoters' activeStyle>
            Register Voter
           </NavLink>
           <NavLink to='/newelections' activeStyle>
@@ -22,9 +22,6 @@ const NavBar = () => {
           </NavLink>
           <NavLink to='/viewelections' activeStyle>
             View Elections
-          </NavLink>
-          <NavLink to='/registeredvoter' activeStyle>
-            Registered Voter
           </NavLink>
         </NavMenu>
       </Nav>
