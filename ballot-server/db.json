@@ -1,28 +1,56 @@
 {
-    "users": [
-      { "id": 0, "votedElectionIDs": [0, 1, 2], 
-        "user": 
-            {
-                "firstname": "Prachi", 
-                "lastname": "Jani", 
-                "address": "1729 N 1st St", 
-                "city": "San Jose", 
-                "birthdate": "09131988", 
-                "email": "prachi_jani@intuit.com", 
-                "phone": "4083738410"
-            }
-        },
-        { "id": 1, "votedElectionIDs": [0, 1, 2], 
-            "user": 
-            {
-                "firstname": "Lien", 
-                "lastname": "Tran", 
-                "address": "1729 N 1st St", 
-                "city": "San Francisco", 
-                "birthdate": "09131988", 
-                "email": "prachi_jani@intuit.com", 
-                "phone": "4083738410"
-            }
+  "users": [
+    {
+      "id": 6,
+      "votedElectionIDs": [],
+      "user": {
+        "firstname": "Prachi456",
+        "lastname": "Jani456",
+        "address": "33 S 3rd St, Apt 110",
+        "city": "San Jose",
+        "birthdate": "09131988",
+        "email": "proch.jani@gmail.com",
+        "phone": "5555555555"
+      }
+    },
+    {
+      "id": 7,
+      "votedElectionIDs": [],
+      "user": {
+        "firstname": "Prateek",
+        "lastname": "Jani",
+        "address": "1729 N 1st St, Century Towers Apartments",
+        "city": "San Jose",
+        "birthdate": "09131989",
+        "email": "prateek.jani@gmail.com",
+        "phone": "8888888888"
+      }
+    },
+    {
+      "id": 8,
+      "votedElectionIDs": [],
+      "user": {
+        "firstname": "Prachi",
+        "lastname": "Jani",
+        "address": "33 S 3rd St, Apt 110",
+        "city": "San Jose",
+        "birthdate": "09131988",
+        "email": "proch.jani@gmail.com",
+        "phone": "4083738410"
+      }
+    }
+  ],
+  "elections": [
+    {
+      "id": 0,
+      "questions": [
+        {
+          "id": 0,
+          "question": "the sky is blue",
+          "result": {
+            "yes": 20,
+            "no": 34
+          }
         }
     ],
    "elections": [
@@ -79,4 +107,4 @@
       ]
     }
   ]
-  }
+  

@@ -9,16 +9,13 @@ import NavBar from './component/NavBar';
 
 import NewElection from "./election/NewElection";
 import Elections from './election/Elections'
+import RegisterVoterTool from "./component/RegisterVoter/RegisterVoterTool";
 
 function App() {
   return (
-
     <Router>
       <div>
          <NavBar />
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/newelections">
             <NewElection />
@@ -29,6 +26,9 @@ function App() {
           {/* <Route path="/">
             <Home />
           </Route> */}
+          <Route path="/registervoters">
+            <RegisterVoterTool />
+          </Route>
         </Switch>
       </div>
     </Router>

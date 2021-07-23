@@ -7,5 +7,6 @@ function checkHttpStatus(response) {
       return Promise.reject(error);
     }
   }
-
+  
 export default checkHttpStatus;
+  

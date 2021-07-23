@@ -8,7 +8,11 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
     "react-redux": "^7.2.4",
+=======
+    "react-router-dom": "^5.2.0",
+>>>>>>> 33d3538d5adbd3bb6194d2b2ab716caa7da06c30
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
@@ -38,6 +42,8 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "react-redux": "^7.2.4",
+    "redux-thunk": "^2.3.0"
   }
 }
