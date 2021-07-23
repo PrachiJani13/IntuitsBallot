@@ -25,17 +25,58 @@
             }
         }
     ],
-    "elections": [
-      { "id": 0, 
-        "questions": [
-            {
-                "id": 0, 
-                "question": "the sky is blue", 
-                "result": {
-                    "yes": 20, "no": 34
-                }
-            }
-        ]
+   "elections": [
+    {
+      "id": 0,
+      "electionname": "General Ballot",
+      "questions": [
+        {
+          "id": 0,
+          "question": "the sky is blue",
+          "result": {
+            "yes": 20,
+            "no": 34
+          }
+        },
+        {
+          "id": 1,
+          "question": "water is wet",
+          "result": {
+            "yes": 4,
+            "no": 100
+          }
         }
-    ]
+      ]
+    },
+    {
+      "id": 1,
+      "electionname": "Coding",
+      "questions": [
+        {
+          "id": 0,
+          "question": "Python is easy",
+          "result": {
+            "yes": 20,
+            "no": 34
+          }
+        },
+        {
+          "id": 1,
+          "question": "Reactive Spring is new",
+          "result": {
+            "yes": 4,
+            "no": 100
+          }
+        },
+        {
+          "id": 2,
+          "question": "Angular is better",
+          "result": {
+            "yes": 100,
+            "no": 4
+          }
+        }
+      ]
+    }
+  ]
   }
